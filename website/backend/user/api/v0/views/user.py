@@ -1,6 +1,6 @@
 from rest_framework import viewsets, mixins
 
-from user.api.v1.serializers import UserSerializer
+from user.api.v0.serializers import UserSerializer
 from user.models import User
 
 
