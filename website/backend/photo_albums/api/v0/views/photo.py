@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from photo_albums.api.v1.serializers import PhotoSerializer, Photo
+from photo_albums.api.v0.serializers import PhotoSerializer, Photo
 
 
 class PhotoViewSet(viewsets.ModelViewSet):

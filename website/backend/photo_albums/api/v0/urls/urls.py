@@ -1,5 +1,5 @@
 from rest_framework import routers
-from photo_albums.api.v1.views import TagViewSet, PhotoViewSet, AlbumViewSet,ImageViewSet,ImageSmallViewSet
+from photo_albums.api.v0.views import TagViewSet, PhotoViewSet, AlbumViewSet,ImageViewSet,ImageSmallViewSet
 
 router = routers.DefaultRouter()
 urlpatterns = [
