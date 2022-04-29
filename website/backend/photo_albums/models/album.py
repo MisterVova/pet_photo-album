@@ -17,3 +17,4 @@ class Album(models.Model):
         verbose_name = "Альбом"
         verbose_name_plural = "Альбомы"
         ordering = ("user", "name",)
+        unique_together = ('name', 'user')

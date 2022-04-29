@@ -23,3 +23,4 @@ class Photo(models.Model):
         verbose_name = "Фотография"
         verbose_name_plural = "Фотографии"
         ordering = ("user", "album", "name")
+        unique_together = ('name', 'album')
