@@ -35,19 +35,19 @@ class TagViewSet2(viewsets.ViewSet):
     the `format=None` keyword argument for each action.
     """
 
-    @swagger_auto_schema(request_body=TagSerializer)
+    # @swagger_auto_schema(request_body=TagSerializer)
     def list(self, request):
         t = Tag.objects.all()
         return Response({"tags": TagSerializer(t, many=True).data})
 
-    @swagger_auto_schema(request_body=TagSerializer)
+    # @swagger_auto_schema(request_body=TagSerializer)
     def create(self, request):
         serializer = TagSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response({'post': serializer.data})
 
-    @swagger_auto_schema(request_body=TagSerializer)
+    # @swagger_auto_schema(request_body=TagSerializer)
     def retrieve(self, request, pk=None):
 
         # if not pk:
@@ -64,7 +64,7 @@ class TagViewSet2(viewsets.ViewSet):
         #     return Response({"tag": TagSerializer(tag).data})
         return Response({"error": "Object does not exists"})
 
-    @swagger_auto_schema(request_body=TagSerializer)
+    # @swagger_auto_schema(request_body=TagSerializer)
     def update(self, request, pk=None):
         if not pk:
             return Response({"error": "Method PUT not allowed"})
@@ -79,7 +79,7 @@ class TagViewSet2(viewsets.ViewSet):
         serializer.save()
         return Response({"tag": serializer.data})
 
-    @swagger_auto_schema(request_body=TagSerializer)
+    # @swagger_auto_schema(request_body=TagSerializer)
     def partial_update(self, request, pk=None):
         if not pk:
             return Response({"error": "Method PUT not allowed"})
@@ -94,7 +94,7 @@ class TagViewSet2(viewsets.ViewSet):
         serializer.save()
         return Response({"tag": serializer.data})
 
-    @swagger_auto_schema(request_body=TagSerializer)
+    # @swagger_auto_schema(request_body=TagSerializer)
     def destroy(self, request, pk=None):
         if not pk:
             return Response({"error": "Method DELETE not allowed"})

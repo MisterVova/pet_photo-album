@@ -6,3 +6,4 @@ class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
         fields = "__all__"
+        ref_name = "TagSerializer V0"
