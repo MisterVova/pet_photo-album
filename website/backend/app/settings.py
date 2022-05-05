@@ -14,7 +14,8 @@ REST_FRAMEWORK["DEFAULT_AUTHENTICATION_CLASSES"] = DEFAULT_AUTHENTICATION_CLASSE
 LOGIN_URL = '/admin/login/'
 
 INSTALLED_APPS += [
-    "photo_albums",
+    "photo_album",
+    "photo_albums",  # old
     'drf_yasg',
     "rest_framework_swagger",
 ]
