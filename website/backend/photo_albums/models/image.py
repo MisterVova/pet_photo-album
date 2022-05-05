@@ -1,6 +1,8 @@
 from django.db import models
 from garpix_utils.file import get_file_path
-import photo_albums.validators as validator
+
+
+# import photo_albums.validators as validator
 
 
 # validators=validator.image
@@ -39,16 +41,17 @@ class Image(models.Model):
         #     pass
 
         if self.image:
-            # self.make_miniature()
-            try:
-                self.make_miniature()
-            except:
-                print("make_miniature except")
+            self.make_miniature()
+            # try:
+            #     self.make_miniature()
+            # except:
+            #     pass
+            #     print("make_miniature except")
 
         super().save(*args, **kwargs)
 
     def make_miniature(self):
-        print("make_miniature Start")
+        # print("make_miniature Start")
         image = self.image
 
         name_original = image.name
@@ -58,11 +61,11 @@ class Image(models.Model):
         name_new = f"{root}_small{ext}"
         path_new = path_original[0:-len(name_original)] + name_new
 
-        print("name_original", name_original)
-        print("name_new     ", name_new)
-        print("path_original", path_original)
-        print("path_new_head", path_original[0:-len(name_original)])
-        print("path_new     ", path_new)
+        # print("name_original", name_original)
+        # print("name_new     ", name_new)
+        # print("path_original", path_original)
+        # print("path_new_head", path_original[0:-len(name_original)])
+        # print("path_new     ", path_new)
 
         from PIL import Image as PIL_Image
         img = PIL_Image.open(path_original)
@@ -72,10 +75,10 @@ class Image(models.Model):
             img_small.thumbnail(output_size)
         img_small.save(path_new)
 
-        from django.db.models.fields.files import ImageFieldFile, FileField, ImageField
+        from django.db.models.fields.files import ImageFieldFile
         self.image_small = ImageFieldFile(instance=self.image_small, field=self.image_small, name=name_new)
 
-        print("self.image_small", self.image_small)
-        print("self.image_small.name", self.image_small.name)
-        print("self.image_small.path", self.image_small.path)
-        print("make_miniature Finish")
+        # print("self.image_small", self.image_small)
+        # print("self.image_small.name", self.image_small.name)
+        # print("self.image_small.path", self.image_small.path)
+        # print("make_miniature Finish")

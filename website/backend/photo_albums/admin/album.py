@@ -4,4 +4,4 @@ from django.contrib import admin
 
 @admin.register(Album)
 class AlbumAdmin(admin.ModelAdmin):
-    list_display = ["name","user"]
+    list_display = ["name", "user"]

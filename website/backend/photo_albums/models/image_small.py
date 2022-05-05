@@ -1,6 +1,5 @@
 from django.db import models
 from photo_albums.models.image import Image
-from garpix_utils.file import get_file_path
 
 
 class ImageSmall(Image):

@@ -1,4 +1,6 @@
 from garpixcms.settings import *  # noqa
+from garpixcms.settings import INSTALLED_APPS  # noqa
+from garpixcms.settings import REST_FRAMEWORK  # noqa
 
 DEFAULT_AUTHENTICATION_CLASSES = list(REST_FRAMEWORK["DEFAULT_AUTHENTICATION_CLASSES"])
 DEFAULT_AUTHENTICATION_CLASSES += [
@@ -16,4 +18,3 @@ INSTALLED_APPS += [
     'drf_yasg',
     "rest_framework_swagger",
 ]
-
