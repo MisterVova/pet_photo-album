@@ -1,17 +1,23 @@
 from django.urls import path
-from rest_framework import routers, permissions
-from photo_albums.api.v1.views import TagViewSet, PhotoViewSet, AlbumViewSet
-from photo_albums.api.v1.views.tag import TagViewSet2
+from rest_framework import routers
+from photo_albums.api.v1.views import TagViewSet, PhotoViewSet, AlbumViewSet, PhotoUpdateViewSet
+from rest_framework.schemas import get_schema_view
+from django.views.generic import TemplateView
+
+# from photo_albums.api.v1.views.tag import TagViewSet2
 
 router = routers.DefaultRouter()
 urlpatterns = [
-    path('tags2/', TagViewSet2.as_view({'get': 'list'}))
+    # path('tags2/', TagViewSet2.as_view({'get': 'list'}))
+    # path('movies/', TagAPIView.as_view()),
 ]
 
 router.register('tags', TagViewSet)
-router.register('photo', PhotoViewSet)
 router.register('albums', AlbumViewSet)
-router.register('tags3', TagViewSet2, basename='tag')
+router.register('photo', PhotoViewSet)
+router.register('photo/edit', PhotoUpdateViewSet)
+
+# router.register('tags2', TagViewSet2, basename='tag')
 # router.register('tags2', TagViewSet2)
 # router.register('image', ImageViewSet)
 # router.register('image-small', ImageSmallViewSet)
@@ -52,20 +58,7 @@ urlpatterns += router.urls
 #     ), name='api_schema'),
 # ]
 
-from rest_framework.schemas import get_schema_view
-from django.views.generic import TemplateView
 
-urlpatterns = [
-                  # ...
-                  path('api_schema/', get_schema_view(
-                      title='API Schema',
-                      description='Guide for the REST API'
-                  ), name='api_schema'),
-
-                  path('docs/', TemplateView.as_view(
-                      template_name='docs.html',
-                      extra_context={'schema_url': 'api_schema'}
-                  ), name='swagger-ui'),
-
-                  # ...
-              ] + urlpatterns
+urlpatterns = [path('api_schema/', get_schema_view(title='API Schema', description='Guide for the REST API'), name='api_schema'),
+               path('docs/', TemplateView.as_view(template_name='docs.html', extra_context={'schema_url': 'api_schema'}), name='swagger-ui'),
+               ] + urlpatterns

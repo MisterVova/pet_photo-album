@@ -1,5 +1,3 @@
-from abc import ABC
-
 from rest_framework import serializers
 from photo_albums.models import Tag
 
@@ -14,6 +12,7 @@ class TagSerializer(serializers.Serializer):
     # simple serializer for Tag
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(max_length=254)
+    # queryset = Tag.objects.all()
 
     def create(self, validated_data):
         return Tag.objects.create(** validated_data)
