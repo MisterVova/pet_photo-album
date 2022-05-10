@@ -15,7 +15,7 @@ LOGIN_URL = '/admin/login/'
 
 INSTALLED_APPS += [
     "photo_album",
-    "photo_albums",  # old
+    # "photo_albums",  # old
     'drf_yasg',
     "rest_framework_swagger",
 ]

@@ -1,12 +1,11 @@
 from rest_framework import routers
 from user.api.v0.views import UserViewSet
-from django.urls import path, include
+# from django.urls import path, include
 
 urlpatterns = [
-    path('drf-auth/', include('rest_framework.urls')),
+
 ]
 
 router = routers.DefaultRouter()
 router.register('signup', UserViewSet)
-
 urlpatterns += router.urls

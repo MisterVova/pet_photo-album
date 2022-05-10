@@ -1,20 +1,45 @@
 from django.db import models
+from django.http import HttpRequest
 
-from photo_albums.validators.image import validate_image_content_type, validate_image_size, extensions
 from user.models import User
-from photo_albums.models.tag import Tag
-from photo_albums.models.album import Album
+from photo_album.models.tag import Tag
+from photo_album.models.album import Album
 from garpix_utils.file import get_file_path
-# import photo_albums.validators as validator
-# import photo_albums.validators as validator
+
 from django.core.validators import FileExtensionValidator
 
-validators_image = [
-    FileExtensionValidator(allowed_extensions=extensions),
-    validate_image_content_type,
-    validate_image_size,
+extensions = [
+    'jpg',
+    'jpeg',
+    'png',
 ]
-validators = validators_image
+
+
+def validate_image_size(image_field_obj):
+    file_size = image_field_obj.size
+    megabyte_limit = 5.0
+    if file_size > megabyte_limit * 1024 * 1024:
+        from django.core.exceptions import ValidationError
+        raise ValidationError("Max file size is %sMB" % str(megabyte_limit))
+
+
+def validate_image_content_type(image_field_obj):
+    allowed_types = [
+        'image/jpeg',
+        'image/png',
+    ]
+
+    file = image_field_obj
+    from django.db.models.fields.files import ImageFieldFile
+    if isinstance(file, ImageFieldFile):
+        file = file.file
+    content_type = file.content_type
+
+    if not (content_type in allowed_types):
+        from django.core.exceptions import ValidationError
+        raise ValidationError(
+            f'MIME  тип  файла “{content_type}” не допускается. Разрешенные MIME  типы: {", ".join(allowed_types)}.',
+        )
 
 
 class Photo(models.Model):
@@ -25,7 +50,7 @@ class Photo(models.Model):
     album = models.ForeignKey(Album, verbose_name='Альбом', on_delete=models.CASCADE, related_name='photos', null=False)
     tags = models.ManyToManyField(Tag, verbose_name="Теги", related_name="photos", blank=True)
 
-    image = models.ImageField(verbose_name="Изображение", blank=False, null=False, upload_to=get_file_path, )
+    image = models.ImageField(verbose_name="Изображение", blank=False, null=False, upload_to=get_file_path, validators=[validate_image_size, validate_image_content_type, FileExtensionValidator(allowed_extensions=extensions), ])
     image_small = models.ImageField(verbose_name="миниатюра Изображения", blank=True, null=True, upload_to=get_file_path, )
 
     def __str__(self):
@@ -40,10 +65,11 @@ class Photo(models.Model):
     def save(self, *args, **kwargs):
         # super().save(*args, **kwargs)
         # print("", self.image)
-        if self.album.user != self.user:
-            # if True:
-            from rest_framework import serializers
-            raise serializers.ValidationError("Не найден альбом")
+
+        # if self.album.user != self.user:
+        #     # if True:
+        #     from rest_framework import serializers
+        #     raise serializers.ValidationError("Не найден альбом")
 
         if self.image:
             self.make_miniature()
@@ -59,6 +85,53 @@ class Photo(models.Model):
         # self.save(*args, **kwargs)
 
     def make_miniature(self):
+        # print("make_miniature Start")
+        image = self.image
+
+        name_original = image.name
+        path_original = image.path
+        import os
+        # print("name_original     ", name_original)
+        file_path = get_file_path(path_original, name_original)
+        # print("file_path     ", file_path)
+        # root, ext = os.path.splitext(name_original)
+        root, ext = os.path.splitext(file_path)
+        # print("root, ext ", (root, ext))
+        name_new = f"{root}_small{ext}"
+        # path_new = path_original[0:-len(name_original)] + file_path + name_new
+        path_new = path_original[0:-len(name_original)] + name_new
+
+        # print("name_original", name_original)
+        # print("name_new     ", name_new)
+        # print("path_original", path_original)
+        # print("path_new_head", path_original[0:-len(name_original)])
+        # print("path_new     ", path_new)
+
+        from PIL import Image as PIL_Image
+        # img = PIL_Image.open(path_original)
+        img = PIL_Image.open(image)
+        img_small = img.copy()
+        if img_small.height > 150 or img_small.width > 150:
+            output_size = (150, 150)
+            img_small.thumbnail(output_size)
+
+        file, ext = os.path.split(path_new)
+        if not os.path.exists(file):
+            os.makedirs(file)
+        img_small.save(path_new)
+        # img_s = PIL_Image.open(path_new)
+        # print("img_s     ", img_s)
+        from django.db.models.fields.files import ImageFieldFile
+        # self.image_small = ImageFieldFile(instance=self.image_small, field=self.image_small, name=name_new)
+        self.image_small = ImageFieldFile(instance=self.image_small, field=self.image_small, name=name_new)
+
+        # print("self.image_small", self.image_small)
+        # print("self.image_small.name", self.image_small.name)
+        # print("self.image_small.path", self.image_small.path)
+
+        # print("make_miniature Finish")
+
+    def make_miniature2(self):
         # print("make_miniature Start")
         # self.image.
         image = self.image
@@ -89,6 +162,10 @@ class Photo(models.Model):
         if img_small.height > 150 or img_small.width > 150:
             output_size = (150, 150)
             img_small.thumbnail(output_size)
+
+        file, ext = os.path.split(path_new)
+        if not os.path.exists(file):
+            os.makedirs(file)
         img_small.save(path_new)
         # img_s = PIL_Image.open(path_new)
         # print("img_s     ", img_s)
@@ -101,3 +178,23 @@ class Photo(models.Model):
         # print("self.image_small.path", self.image_small.path)
 
         # print("make_miniature Finish")
+
+    @classmethod
+    def get_queryset_by_request(cls, request: HttpRequest, user: User):
+        # print("get_queryset_by_request")
+        # print(request)
+        # print(request.GET)
+
+        from photo_album.serializers.photo import PhotoFilterSerializer
+        p = PhotoFilterSerializer(data=request.GET)
+        p.is_valid()
+        # print(is_valid)
+        # print(p.validated_data)
+
+        from photo_album.filters.photo import PhotoFilter
+        photo_filter = PhotoFilter(**p.validated_data)
+        # print(photo_filter)
+        # items = Photo.objects.all()
+        # user = request.user
+        return cls.objects.filter(user=user).filter(photo_filter.get_q_filter()).order_by(*photo_filter.get_ordering())
+        # return cls.objects.filter(photo_filter.get_q_filter()) photo_filter.get_ordering()
