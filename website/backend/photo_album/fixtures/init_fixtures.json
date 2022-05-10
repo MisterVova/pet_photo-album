@@ -1,0 +1,487 @@
+[
+{
+  "model": "photo_album.tag",
+  "pk": 1,
+  "fields": {
+    "name": "авто"
+  }
+},
+{
+  "model": "photo_album.tag",
+  "pk": 2,
+  "fields": {
+    "name": "дом"
+  }
+},
+{
+  "model": "photo_album.tag",
+  "pk": 3,
+  "fields": {
+    "name": "лес"
+  }
+},
+{
+  "model": "photo_album.tag",
+  "pk": 4,
+  "fields": {
+    "name": "город"
+  }
+},
+{
+  "model": "photo_album.tag",
+  "pk": 5,
+  "fields": {
+    "name": "мост"
+  }
+},
+{
+  "model": "photo_album.tag",
+  "pk": 6,
+  "fields": {
+    "name": "поле"
+  }
+},
+{
+  "model": "photo_album.tag",
+  "pk": 7,
+  "fields": {
+    "name": "река"
+  }
+},
+{
+  "model": "photo_album.tag",
+  "pk": 8,
+  "fields": {
+    "name": "море"
+  }
+},
+{
+  "model": "photo_album.tag",
+  "pk": 9,
+  "fields": {
+    "name": "пляж"
+  }
+},
+{
+  "model": "photo_album.tag",
+  "pk": 10,
+  "fields": {
+    "name": "цветок"
+  }
+},
+{
+  "model": "photo_album.album",
+  "pk": 1,
+  "fields": {
+    "name": "user_01_album_01",
+    "created_at": "2022-05-06T14:33:00.974Z",
+    "updated_at": "2022-05-06T14:33:00.974Z",
+    "user": 3
+  }
+},
+{
+  "model": "photo_album.album",
+  "pk": 2,
+  "fields": {
+    "name": "user_01_album_02",
+    "created_at": "2022-05-06T14:33:14.089Z",
+    "updated_at": "2022-05-06T14:33:14.089Z",
+    "user": 3
+  }
+},
+{
+  "model": "photo_album.album",
+  "pk": 3,
+  "fields": {
+    "name": "user_01_album_03",
+    "created_at": "2022-05-06T14:33:19.712Z",
+    "updated_at": "2022-05-06T14:33:19.712Z",
+    "user": 3
+  }
+},
+{
+  "model": "photo_album.album",
+  "pk": 4,
+  "fields": {
+    "name": "user_02_album_01",
+    "created_at": "2022-05-06T14:33:41.349Z",
+    "updated_at": "2022-05-06T14:33:41.349Z",
+    "user": 4
+  }
+},
+{
+  "model": "photo_album.album",
+  "pk": 5,
+  "fields": {
+    "name": "user_02_album_02",
+    "created_at": "2022-05-06T14:33:45.432Z",
+    "updated_at": "2022-05-06T14:33:45.432Z",
+    "user": 4
+  }
+},
+{
+  "model": "photo_album.album",
+  "pk": 6,
+  "fields": {
+    "name": "user_02_album_03",
+    "created_at": "2022-05-06T14:33:50.699Z",
+    "updated_at": "2022-05-06T14:33:50.699Z",
+    "user": 4
+  }
+},
+{
+  "model": "photo_album.album",
+  "pk": 7,
+  "fields": {
+    "name": "user_03_album_01",
+    "created_at": "2022-05-06T14:34:14.375Z",
+    "updated_at": "2022-05-06T14:34:14.375Z",
+    "user": 5
+  }
+},
+{
+  "model": "photo_album.album",
+  "pk": 8,
+  "fields": {
+    "name": "user_03_album_02",
+    "created_at": "2022-05-06T14:34:18.712Z",
+    "updated_at": "2022-05-06T14:34:18.712Z",
+    "user": 5
+  }
+},
+{
+  "model": "photo_album.album",
+  "pk": 9,
+  "fields": {
+    "name": "user_03_album_03",
+    "created_at": "2022-05-06T14:34:22.403Z",
+    "updated_at": "2022-05-06T14:34:22.403Z",
+    "user": 5
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 1,
+  "fields": {
+    "name": "user_01_photo_01",
+    "created_at": "2022-05-06T15:12:03.976Z",
+    "updated_at": "2022-05-06T16:34:43.753Z",
+    "user": 3,
+    "album": 1,
+    "image": "uploads/2022/5/1935-bmw-319-1-kopiia_E5nuO3o.png",
+    "image_small": "uploads/2022/5/1935-bmw-319-1-kopiia_small.png",
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 2,
+  "fields": {
+    "name": "user_01_photo_02",
+    "created_at": "2022-05-06T15:16:33.070Z",
+    "updated_at": "2022-05-06T15:26:30.669Z",
+    "user": 3,
+    "album": 1,
+    "image": "uploads/2022/5/1935-bmw-319-1-kopiia_vM7HhFs.png",
+    "image_small": "uploads/2022/5/1935-bmw-319-1-kopiia_small.png",
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 3,
+  "fields": {
+    "name": "user_01_photo_03_1",
+    "created_at": "2022-05-06T15:18:43.506Z",
+    "updated_at": "2022-05-06T16:54:54.082Z",
+    "user": 3,
+    "album": 3,
+    "image": "uploads/2022/5/1935-bmw-319-1-kopiia_pBlmDlT.png",
+    "image_small": "uploads/2022/5/uploads-2022-5-1935-bmw-319-1-kopiia-pblmdlt_small.png",
+    "tags": []
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 4,
+  "fields": {
+    "name": "user_01_photo_04",
+    "created_at": "2022-05-06T15:23:28.714Z",
+    "updated_at": "2022-05-06T16:43:37.321Z",
+    "user": 3,
+    "album": 1,
+    "image": "uploads/2022/5/1935-bmw-319-1.jpg",
+    "image_small": "uploads/2022/5/1935-bmw-319-1_small.jpg",
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 5,
+  "fields": {
+    "name": "user_01_photo_05",
+    "created_at": "2022-05-06T16:45:38.849Z",
+    "updated_at": "2022-05-06T16:45:38.849Z",
+    "user": 3,
+    "album": 1,
+    "image": "uploads/2022/5/1935-bmw-319-5.jpg",
+    "image_small": "uploads/2022/5/1935-bmw-319-5_small.jpg",
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 6,
+  "fields": {
+    "name": "user_01_photo_06",
+    "created_at": "2022-05-06T16:45:50.972Z",
+    "updated_at": "2022-05-06T16:45:50.972Z",
+    "user": 3,
+    "album": 1,
+    "image": "uploads/2022/5/1935-bmw-319-6.jpg",
+    "image_small": "uploads/2022/5/1935-bmw-319-6_small.jpg",
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 7,
+  "fields": {
+    "name": "user_01_photo_07",
+    "created_at": "2022-05-06T16:46:02.217Z",
+    "updated_at": "2022-05-06T16:46:02.217Z",
+    "user": 3,
+    "album": 1,
+    "image": "uploads/2022/5/1935-bmw-319-7.jpg",
+    "image_small": "uploads/2022/5/1935-bmw-319-7_small.jpg",
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 8,
+  "fields": {
+    "name": "user_01_photo_08",
+    "created_at": "2022-05-06T16:46:25.760Z",
+    "updated_at": "2022-05-06T16:46:25.760Z",
+    "user": 3,
+    "album": 1,
+    "image": "uploads/2022/5/1935-bmw-319-8.jpg",
+    "image_small": "uploads/2022/5/1935-bmw-319-8_small.jpg",
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 9,
+  "fields": {
+    "name": "user_01_photo_09",
+    "created_at": "2022-05-06T16:46:39.865Z",
+    "updated_at": "2022-05-06T16:46:39.865Z",
+    "user": 3,
+    "album": 1,
+    "image": "uploads/2022/5/1935-bmw-319-sport-1.jpg",
+    "image_small": "uploads/2022/5/1935-bmw-319-sport-1_small.jpg",
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 10,
+  "fields": {
+    "name": "user_01_photo_10",
+    "created_at": "2022-05-06T16:46:51.644Z",
+    "updated_at": "2022-05-06T16:46:51.644Z",
+    "user": 3,
+    "album": 1,
+    "image": "uploads/2022/5/1935-bmw-319-sport-2.jpg",
+    "image_small": "uploads/2022/5/1935-bmw-319-sport-2_small.jpg",
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 11,
+  "fields": {
+    "name": "user_01_photo_11",
+    "created_at": "2022-05-06T16:47:38.086Z",
+    "updated_at": "2022-05-06T16:47:38.086Z",
+    "user": 3,
+    "album": 2,
+    "image": "uploads/2022/5/1936-bmw-328-5.jpg",
+    "image_small": "uploads/2022/5/1936-bmw-328-5_small.jpg",
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 12,
+  "fields": {
+    "name": "user_01_photo_12",
+    "created_at": "2022-05-06T16:47:51.526Z",
+    "updated_at": "2022-05-06T16:47:51.526Z",
+    "user": 3,
+    "album": 2,
+    "image": "uploads/2022/5/1936-bmw-328-6.jpg",
+    "image_small": "uploads/2022/5/1936-bmw-328-6_small.jpg",
+    "tags": [
+      1
+    ]
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 13,
+  "fields": {
+    "name": "user_01_photo_13",
+    "created_at": "2022-05-06T16:48:27.683Z",
+    "updated_at": "2022-05-06T16:48:27.683Z",
+    "user": 3,
+    "album": 2,
+    "image": "uploads/2022/5/1936-bmw-328-7.jpg",
+    "image_small": "uploads/2022/5/1936-bmw-328-7_small.jpg",
+    "tags": [
+      3
+    ]
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 14,
+  "fields": {
+    "name": "user_01_photo_14",
+    "created_at": "2022-05-06T16:48:46.532Z",
+    "updated_at": "2022-05-06T16:48:46.532Z",
+    "user": 3,
+    "album": 2,
+    "image": "uploads/2022/5/1937-bmw-327-6.jpg",
+    "image_small": "uploads/2022/5/1937-bmw-327-6_small.jpg",
+    "tags": [
+      2
+    ]
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 15,
+  "fields": {
+    "name": "user_01_photo_15",
+    "created_at": "2022-05-06T16:49:01.978Z",
+    "updated_at": "2022-05-06T16:49:01.978Z",
+    "user": 3,
+    "album": 2,
+    "image": "uploads/2022/5/1937-bmw-327.jpg",
+    "image_small": "uploads/2022/5/1937-bmw-327_small.jpg",
+    "tags": [
+      2
+    ]
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 16,
+  "fields": {
+    "name": "user_01_photo_16",
+    "created_at": "2022-05-06T16:49:33.802Z",
+    "updated_at": "2022-05-06T16:49:33.802Z",
+    "user": 3,
+    "album": 2,
+    "image": "uploads/2022/5/1937-bmw-328-11.jpg",
+    "image_small": "uploads/2022/5/1937-bmw-328-11_small.jpg",
+    "tags": [
+      4,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 17,
+  "fields": {
+    "name": "user_01_photo_17",
+    "created_at": "2022-05-06T16:49:59.335Z",
+    "updated_at": "2022-05-06T16:49:59.335Z",
+    "user": 3,
+    "album": 2,
+    "image": "uploads/2022/5/1937-bmw-328-15.jpg",
+    "image_small": "uploads/2022/5/1937-bmw-328-15_small.jpg",
+    "tags": [
+      10
+    ]
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 18,
+  "fields": {
+    "name": "user_01_photo_18",
+    "created_at": "2022-05-06T16:50:16.897Z",
+    "updated_at": "2022-05-06T16:50:16.897Z",
+    "user": 3,
+    "album": 2,
+    "image": "uploads/2022/5/1938-bmw-326-3.jpg",
+    "image_small": "uploads/2022/5/1938-bmw-326-3_small.jpg",
+    "tags": [
+      4,
+      2
+    ]
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 19,
+  "fields": {
+    "name": "user_01_photo_19",
+    "created_at": "2022-05-06T16:50:34.830Z",
+    "updated_at": "2022-05-06T16:50:34.830Z",
+    "user": 3,
+    "album": 2,
+    "image": "uploads/2022/5/1938-bmw-326-25.jpg",
+    "image_small": "uploads/2022/5/1938-bmw-326-25_small.jpg",
+    "tags": [
+      3,
+      8,
+      5
+    ]
+  }
+},
+{
+  "model": "photo_album.photo",
+  "pk": 20,
+  "fields": {
+    "name": "user_01_photo_20",
+    "created_at": "2022-05-06T16:50:55.010Z",
+    "updated_at": "2022-05-06T16:50:55.010Z",
+    "user": 3,
+    "album": 2,
+    "image": "uploads/2022/5/1937-bmw-327-4.jpg",
+    "image_small": "uploads/2022/5/1937-bmw-327-4_small.jpg",
+    "tags": [
+      3,
+      8,
+      5
+    ]
+  }
+}
+]

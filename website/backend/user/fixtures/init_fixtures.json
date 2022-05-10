@@ -1,0 +1,94 @@
+[
+{
+  "model": "user.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$yrDBk7dzHRn7$tGfVGzlHXB5SJRuQS+YqwbhnDVkAT5hHgtMS91V8kX4=",
+    "last_login": "2022-05-08T17:49:08.715Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-05-06T12:21:46.423Z",
+    "phone": "",
+    "telegram_chat_id": "",
+    "telegram_secret": "cd85c9bc0a0646299ee60a98b04945c6",
+    "viber_chat_id": "",
+    "viber_secret_key": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "user.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$LPZZN7KjRXKm$tPol0rCEL0KPRgQWIpW5jvCEjcaLKYC9fZxAYt8btyE=",
+    "last_login": "2022-05-08T18:09:30.517Z",
+    "is_superuser": false,
+    "username": "user_01",
+    "first_name": "user_01",
+    "last_name": "user_01",
+    "email": "user_01@mm.mm",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-05-06T13:54:50.956Z",
+    "phone": "",
+    "telegram_chat_id": "",
+    "telegram_secret": "493f38d30aa5484aa898e52b70afc15d",
+    "viber_chat_id": "",
+    "viber_secret_key": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "user.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$WigS25v7g6jG$Q8j0oA963GMvlh02tq9dNbyR6hxWJsCx75C0pw7u9oA=",
+    "last_login": "2022-05-08T17:49:18.474Z",
+    "is_superuser": false,
+    "username": "user_02",
+    "first_name": "user_02",
+    "last_name": "user_02",
+    "email": "user_02@mm.mm",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-05-06T14:29:48Z",
+    "phone": "",
+    "telegram_chat_id": "",
+    "telegram_secret": "f2d707c9e71542d48bbc6ee5cd503c1b",
+    "viber_chat_id": "",
+    "viber_secret_key": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "user.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$PTzEiorh4TTY$encc+LW+0Nf7bfg3g57sh19TPYirPdtFkt/HLsioA1w=",
+    "last_login": "2022-05-06T14:34:02.774Z",
+    "is_superuser": false,
+    "username": "user_03",
+    "first_name": "user_03",
+    "last_name": "user_03",
+    "email": "user_03@mm.mm",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-05-06T14:30:04.990Z",
+    "phone": "",
+    "telegram_chat_id": "",
+    "telegram_secret": "ca542f9ee3194502bf6d102b08da5a31",
+    "viber_chat_id": "",
+    "viber_secret_key": "",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
