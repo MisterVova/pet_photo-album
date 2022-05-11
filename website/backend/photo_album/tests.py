@@ -6,7 +6,7 @@ from django.urls import reverse
 
 # python3 manage.py test photo_album.tests --verbosity 2
 
-class RegistrationTestCase(APITestCase):
+class UserTestCase(APITestCase):
     def setUp(self):
         self.register_url = reverse('user-list')
         # print("register_url", self.register_url)
