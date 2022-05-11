@@ -18,4 +18,5 @@ INSTALLED_APPS += [
     # "photo_albums",  # old
     'drf_yasg',
     "rest_framework_swagger",
+    'rest_framework.authtoken',
 ]
