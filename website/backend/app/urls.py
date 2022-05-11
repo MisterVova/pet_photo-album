@@ -3,6 +3,9 @@ from .yasg import urlpatterns as doc_urls
 from django.urls import path, include
 
 urlpatterns = [path('drf-auth/', include('rest_framework.urls')),
+               path('auth/', include('djoser.urls')),
+               path('auth/', include('djoser.urls.authtoken')),
+
                # path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
                # path('api/v0/service/', include('photo_albums.api.v0.urls')),
                path('api/v0/user/', include('user.api.v0.urls')),
