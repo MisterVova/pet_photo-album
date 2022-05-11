@@ -24,6 +24,9 @@ class RegistrationTestCase(APITestCase):
         }
 
     def test_registration(self):
+        """
+        Регистрация пользователя
+        """
         # pass
         response = self.client.post(self.register_url, self.user_01_test)
         # print("response.status_code", response.status_code)
@@ -37,6 +40,9 @@ class RegistrationTestCase(APITestCase):
         # print(user_01_test.pk)
 
     def test_auth_token(self):
+        """
+        Получения Токена Авторизации
+        """
         self.client.post(self.register_url, self.user_01_test)
         data = {
             'username': self.user_01_test.get("username"),
@@ -51,6 +57,9 @@ class RegistrationTestCase(APITestCase):
         self.assertIn('auth_token', response.json())
 
     def test_auth_token_bad_password(self):
+        """
+        Получения Токена Авторизации при неверном пароле
+        """
         self.client.post(self.register_url, self.user_01_test)
         data = {
             'username': self.user_01_test.get("username"),
@@ -61,6 +70,9 @@ class RegistrationTestCase(APITestCase):
         self.assertIn('non_field_errors', response.json())
 
     def test_auth_token_bad_username(self):
+        """
+        Получения Токена Авторизации при неверном имени пользователя
+        """
         self.client.post(self.register_url, self.user_01_test)
         data = {
             'username': self.user_01_test.get("username") + "bad",
@@ -71,6 +83,12 @@ class RegistrationTestCase(APITestCase):
         self.assertIn('non_field_errors', response.json())
 
     def test_token_authentication(self):
+        """
+        Авторизации с помощью токена и попытка получения данных
+        Не авторизованным пользователем
+        Авторизованным пользователем не администратором
+        Авторизованным администратором
+        """
         self.client.post(self.register_url, self.user_01_test)
         data = {
             'username': self.user_01_test.get("username"),
@@ -88,7 +106,6 @@ class RegistrationTestCase(APITestCase):
         self.user_01_test["auth_token"] = response.json()["auth_token"]
         # print("auth_token", self.user_01_test["auth_token"])
 
-        # self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.user_01_test["auth_token"])
         response = self.client.get(self.tag_list_url)
         # print("response.status_code", response.status_code)
         # print("response.data", response.data)
