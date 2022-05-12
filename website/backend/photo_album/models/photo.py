@@ -66,10 +66,10 @@ class Photo(models.Model):
         # super().save(*args, **kwargs)
         # print("", self.image)
 
-        # if self.album.user != self.user:
-        #     # if True:
-        #     from rest_framework import serializers
-        #     raise serializers.ValidationError("Не найден альбом")
+        if self.album.user != self.user:
+            # if True:
+            from rest_framework import serializers
+            raise serializers.ValidationError("Не найден альбом")
 
         if self.image:
             self.make_miniature()

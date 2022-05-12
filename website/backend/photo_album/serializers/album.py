@@ -11,7 +11,7 @@ class AlbumSerializer(serializers.ModelSerializer):
     user_id = serializers.PrimaryKeyRelatedField(read_only=True, source='user.id')
     user = serializers.HiddenField(default=serializers.CurrentUserDefault())
     created_at = serializers.DateTimeField(read_only=True)
-    count = serializers.CharField(read_only=True, source='photos.count')
+    count = serializers.IntegerField(read_only=True, source='photos.count')
 
     # def create(self, validated_data):
     #     # print("zzzzz", validated_data)
