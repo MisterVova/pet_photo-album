@@ -8,6 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
         # fields = '__all__'
         fields = ['username', 'email', 'first_name', 'last_name', 'password', ]
         extra_kwargs = {'password': {'write_only': True}}
+        ref_name = "api_v0_UserSerializer"
 
     def create(self, validated_data):
         user = User(
