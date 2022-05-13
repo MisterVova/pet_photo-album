@@ -9,11 +9,11 @@ class AlbumViewSet(viewsets.ModelViewSet):
     serializer_class = AlbumSerializer
     permission_classes = (IsAuthenticated,)
 
-    def get_queryset(self):
-        user = self.request.user
-        # print(user)
-        items = Album.objects.filter(user=user)
-        return items
+    # def get_queryset(self):
+    #     user = self.request.user
+    #     # print(user)
+    #     items = Album.objects.filter(user=user)
+    #     return items
     #
     # def create(self, request):
     #     serializer = AlbumSerializer(data=request.data)
@@ -23,3 +23,9 @@ class AlbumViewSet(viewsets.ModelViewSet):
 
     # def perform_create(self, serializer):
     #     serializer.save(user=self.request.user)
+
+
+    def get_queryset(self):
+        user = self.request.user
+        items = Album.get_queryset_by_request(request=self.request, user=user)
+        return items

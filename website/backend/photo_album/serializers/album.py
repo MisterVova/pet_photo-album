@@ -18,8 +18,19 @@ class AlbumSerializer(serializers.ModelSerializer):
     #     # validated_data["user"]=validated_data
     #     return Album.objects.create(**validated_data)
 
+
     class Meta:
         model = Album
         # fields = "__all__"
         # fields = "__all__"
         exclude = ("updated_at",)
+
+
+class AlbumFilterSerializer(serializers.Serializer):
+    ordering = serializers.ListField(child=serializers.CharField(), allow_empty=True, min_length=None, max_length=None, default=[])
+
+    def update(self, instance, validated_data):
+        pass
+
+    def create(self, validated_data):
+        pass
