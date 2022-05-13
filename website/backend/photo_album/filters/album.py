@@ -49,10 +49,5 @@ class AlbumFilter:
             if item in valid_fields:
                 if item[0] == "+":
                     item = item[1:]
-                if item == "count": item = "count"
-                if item == "-count": item = "-count"
-
-                # if item == "count": item = "photos"
-                # if item == "-count": item = "-photos"
                 ret_ordering.append(item)
         return ret_ordering
