@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework import routers
-from photo_album.views import TagViewSet, PhotoViewSet, AlbumViewSet, PhotoUpdateViewSet
+from photo_album.views import TagViewSet, PhotoViewSet, AlbumViewSet
 from rest_framework.schemas import get_schema_view
 from django.views.generic import TemplateView
 

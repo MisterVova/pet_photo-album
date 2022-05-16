@@ -18,7 +18,6 @@ class AlbumSerializer(serializers.ModelSerializer):
     #     # validated_data["user"]=validated_data
     #     return Album.objects.create(**validated_data)
 
-
     class Meta:
         model = Album
         # fields = "__all__"

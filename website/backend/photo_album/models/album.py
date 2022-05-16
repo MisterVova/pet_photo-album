@@ -1,6 +1,5 @@
 from django.db import models
 from django.http import HttpRequest
-from django.utils.functional import cached_property
 from user.models import User
 
 

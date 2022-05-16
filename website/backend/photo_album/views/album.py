@@ -3,8 +3,9 @@ from rest_framework.permissions import IsAuthenticated
 
 from ..serializers import AlbumSerializer, Album
 
-from django_filters.rest_framework import DjangoFilterBackend
+# from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
+
 
 class AlbumViewSet(viewsets.ModelViewSet):
     queryset = Album.objects.all()

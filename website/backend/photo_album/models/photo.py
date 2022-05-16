@@ -32,7 +32,6 @@ def validate_image_content_type(image_field_obj):
     file = image_field_obj
     # print(type(file))
 
-
     from django.db.models.fields.files import ImageFieldFile
     from django.core.exceptions import ValidationError
     from django.core.files.uploadedfile import InMemoryUploadedFile
@@ -47,11 +46,10 @@ def validate_image_content_type(image_field_obj):
 
     try:
         content_type = file.content_type
-    except:
+    except Exception:
         raise ValidationError(f'Не удалось определить MIME тип файла. Разрешенные MIME  типы: {", ".join(allowed_types)}.', )
 
     if not (content_type in allowed_types):
-
         raise ValidationError(
             f'MIME  тип  файла “{content_type}” не допускается. Разрешенные MIME  типы: {", ".join(allowed_types)}.',
         )
@@ -95,7 +93,7 @@ class Photo(models.Model):
             # self.make_miniature2(*args, **kwargs)
             try:
                 self.make_miniature2()
-            except:
+            except Exception:
                 from rest_framework import serializers
                 serializers.ValidationError("Не удалось создать миниатюру")
                 # print("make_miniature except")
