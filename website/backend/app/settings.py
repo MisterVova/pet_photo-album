@@ -12,6 +12,8 @@ DEFAULT_AUTHENTICATION_CLASSES += [
 
 REST_FRAMEWORK["DEFAULT_AUTHENTICATION_CLASSES"] = DEFAULT_AUTHENTICATION_CLASSES
 
+REST_FRAMEWORK['DEFAULT_FILTER_BACKENDS'] = ['django_filters.rest_framework.DjangoFilterBackend']
+
 LOGIN_URL = '/admin/login/'
 
 INSTALLED_APPS += [
@@ -20,6 +22,7 @@ INSTALLED_APPS += [
     "rest_framework_swagger",
     # 'rest_framework.authtoken',
     'djoser',
+    "django_filters",
 ]
 
 DJOSER = {

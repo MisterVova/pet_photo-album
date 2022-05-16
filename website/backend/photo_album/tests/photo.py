@@ -261,42 +261,45 @@ class PhotoTestCase(APITestCase):
         self.assertEqual(response.json()["count"], len(self.images["ok"]))
 
         # фильтрация по id альбома album_02
-        url = self.photo_list_url + f"""?album_id={self.user_01["albums"]["album_02"]["id"]}"""
+        # url = self.photo_list_url + f"""?album_id={self.user_01["albums"]["album_02"]["id"]}"""
+        url = self.photo_list_url + f"""?album={self.user_01["albums"]["album_02"]["id"]}"""
         response = self.client.get(url)
         self.assertEqual(len(response.json()), len(self.images["ok"]))
 
-        # фильтрация по name альбома album_02
-        url = self.photo_list_url + f"""?album_name={self.user_01["albums"]["album_02"]["name"]}"""
-        response = self.client.get(url)
-        self.assertEqual(len(response.json()), len(self.images["ok"]))
+        # # фильтрация по name альбома album_02
+        # url = self.photo_list_url + f"""?album_name={self.user_01["albums"]["album_02"]["name"]}"""
+        # response = self.client.get(url)
+        # self.assertEqual(len(response.json()), len(self.images["ok"]))
 
-        # фильтрация по  id и name альбома album_02 и album_01
-        url = self.photo_list_url + f"""?album_name={self.user_01["albums"]["album_02"]["name"]}&album_id={self.user_01["albums"]["album_01"]["id"]}"""
-        response = self.client.get(url)
-        self.assertEqual(len(response.json()), len(self.images["ok"]) * 2)
+        # # фильтрация по  id и name альбома album_02 и album_01
+        # url = self.photo_list_url + f"""?album_name={self.user_01["albums"]["album_02"]["name"]}&album_id={self.user_01["albums"]["album_01"]["id"]}"""
+        # response = self.client.get(url)
+        # self.assertEqual(len(response.json()), len(self.images["ok"]) * 2)
 
         # фильтрация по id тега
-        url = self.photo_list_url + f"""?tag_id={self.tag_04.id}"""
+        # url = self.photo_list_url + f"""?tag_id={self.tag_04.id}"""
+        url = self.photo_list_url + f"""?tags={self.tag_04.id}"""
         response = self.client.get(url)
         self.assertEqual(len(response.json()), len(self.images["ok"]))
 
-        # фильтрация по name тега
-        url = self.photo_list_url + f"""?tag_name={self.tag_05.name}"""
-        response = self.client.get(url)
-        self.assertEqual(len(response.json()), len(self.images["ok"]))
+        # # фильтрация по name тега
+        # url = self.photo_list_url + f"""?tag_name={self.tag_05.name}"""
+        # response = self.client.get(url)
+        # self.assertEqual(len(response.json()), len(self.images["ok"]))
 
-        # фильтрация по name и id тега
-        url = self.photo_list_url + f"""?tag_name={self.tag_05.name}&tag_id={self.tag_04.id}"""
-        response = self.client.get(url)
-        self.assertEqual(len(response.json()), len(self.images["ok"]) * 2)
+        # # фильтрация по name и id тега
+        # url = self.photo_list_url + f"""?tag_name={self.tag_05.name}&tag_id={self.tag_04.id}"""
+        # response = self.client.get(url)
+        # self.assertEqual(len(response.json()), len(self.images["ok"]) * 2)
 
-        # фильтрация по  id и name альбома album_02 и album_01  и тегу
-        url = self.photo_list_url + f"""?album_name={self.user_01["albums"]["album_02"]["name"]}&album_id={self.user_01["albums"]["album_01"]["id"]}&tag_id={self.tag_04.id}"""
-        response = self.client.get(url)
-        self.assertEqual(len(response.json()), len(self.images["ok"]))
+        # # фильтрация по  id и name альбома album_02 и album_01  и тегу
+        # url = self.photo_list_url + f"""?album_name={self.user_01["albums"]["album_02"]["name"]}&album_id={self.user_01["albums"]["album_01"]["id"]}&tag_id={self.tag_04.id}"""
+        # response = self.client.get(url)
+        # self.assertEqual(len(response.json()), len(self.images["ok"]))
 
         # фильтрация по  id и name альбома album_02  и тегу
-        url = self.photo_list_url + f"""?album_name={self.user_01["albums"]["album_02"]["name"]}&tag_id={self.tag_05.id}"""
+        # url = self.photo_list_url + f"""?album_name={self.user_01["albums"]["album_02"]["name"]}&tag_id={self.tag_05.id}"""
+        url = self.photo_list_url + f"""?album={self.user_01["albums"]["album_02"]["id"]}&tags={self.tag_05.id}"""
         response = self.client.get(url)
         self.assertEqual(len(response.json()), len(self.images["ok"]) // 2)
 

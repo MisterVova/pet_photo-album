@@ -14,7 +14,7 @@ urlpatterns = [
 router.register('tags', TagViewSet)
 router.register('albums', AlbumViewSet)
 router.register('photo', PhotoViewSet)
-router.register('photo/update', PhotoUpdateViewSet)
+# router.register('photo/update', PhotoUpdateViewSet)
 
 urlpatterns += router.urls
 

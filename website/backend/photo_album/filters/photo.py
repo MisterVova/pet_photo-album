@@ -22,12 +22,13 @@ class PhotoFilter:
         # self.tag_name = ["город", "дом"]
         # self.ordering = ["-name",  "-created_at", "album"]
         # self.ordering = ["-album", "created_at"]
+        print(self)
 
     def __str__(self):
         return f"""
         album_id     {self.album_id}
         album_name   {self.album_name}
-        tag_id       {self.tag_name}
+        tag_id       {self.tag_id}
         tag_name     {self.tag_name}
         orders       {self.ordering}
         get_q_filter {self.get_q_filter()}

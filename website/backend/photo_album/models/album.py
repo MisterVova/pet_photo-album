@@ -29,7 +29,7 @@ class Album(models.Model):
 
     @classmethod
     def get_queryset_by_request(cls, request: HttpRequest, user: User):
-        print("get_queryset_by_request")
+        # print("get_queryset_by_request")
         # print(request)
         # print(request.GET)
 
